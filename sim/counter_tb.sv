@@ -9,7 +9,7 @@ module counter_tb ();
     logic enable;
     wire [NUM_BITS-1:0] count;
     
-    Counter counter_inst (
+    counter counter_inst (
         .clk(clk),
         .reset(reset),
         .enable(enable),
