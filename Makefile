@@ -4,7 +4,10 @@ SIM_DIR := ./sim
 HDL_FILES := $(shell find $(HDL_DIR) -name '*.sv' -or -name '*.v')
 SIM_FILES := $(shell find $(SIM_DIR) -name '*.sv' -or -name '*.v')
 
-all: $(BUILD_DIR)/counter_tb.vcd $(BUILD_DIR)/vga_timing_generator_tb.vcd
+TOP_MODULES := counter vga_timing_generator display_processor
+VCD_FILES := $(foreach top_module, $(TOP_MODULES), $(BUILD_DIR)/$(top_module)_tb.vcd)
+
+all: $(VCD_FILES)
 
 # Icarus
 
